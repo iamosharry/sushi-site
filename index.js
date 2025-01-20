@@ -1,13 +1,19 @@
-// function scrollSection(about,popular){
-  
-//   const popular = document.getElementById('popular-food')
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-//   about.scrollIntoView({behavior: 'smooth'},)
-//   popular.scrollIntoView({behavior: 'smooth'},)
-// }
+// Register the plugin
+gsap.registerPlugin(ScrollTrigger);
 
-const about = document.getElementById('about-us')
-
-// about.addEventListener('click',()=>{
-//   console.log('wpor');
-// })
+// Create the scroll-triggered animation
+gsap.to(".box", {
+  scrollTrigger: {
+    trigger: ".box",
+    start: "top center",
+    end: "bottom 100px",
+    markers: true,
+    scrub: true,
+  },
+  x: 500,
+  rotation: 360,
+  duration: 3,
+});
